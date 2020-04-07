@@ -50,6 +50,7 @@ do
 		    echo ""
 		    exit 0;;
         	2)  echo "\033[1;32m===VERIFICATION DES MISES A JOUR===\033[0m"
+		    sudo dpkg --configure -a
 		    sudo apt update
 		    echo ""
             	exit 0;;
