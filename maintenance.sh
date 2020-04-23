@@ -1,16 +1,9 @@
 #!/bin/bash
 
-rouge='\e[1;31m'
-jaune='\e[1;33m' 
-bleu='\e[1;34m' 
-violet='\e[1;35m' 
-vert='\e[1;32m'
-neutre='\e[0;m'
-
 # Vérification que le script n'est pas lancé directement avec sudo (le script contient déjà les sudos pour les actions lorsque c'est nécessaire)
 if [ "$UID" -eq "0" ]
 then
-    zenity --warning --height 80 --width 400 --title "EREUR" --text "Merci de ne pas lancer directement ce script avec les droits root : lancez le sans sudo (./maintenance.sh), le mot de passe sera demandé dans le terminal lors de la 1ère action nécessitant le droit administrateur."
+    zenity --warning --height 80 --width 400 --title "EREUR" --text "Merci de ne pas lancer le script avec sudo (./maintenance.sh), vous donnerez votre mot de passe par la suite."
     exit
 fi
 
