@@ -1,5 +1,5 @@
 # linux-maintenance
-<p>Un script shell qui permet de faire une maintenance complète du système linux (sous Ubuntu). 
+<p>Un script shell qui permet de faire une maintenance complète du système Linux (sous Ubuntu). 
 Les paquets utiles seront installés automatiquement s'ils ne le sont pas.</p>
 
 <p>La partie nettoyage de la corbeille permet de supprimer (ou non) les fichiers présents dans la corbeille depuis plus de 2 semaines. Mais vous pouvez changer cette valeur avec la macro correspondante. Explications ici : <a href="https://linuxhandbook.com/date-command/" title="commande date">https://linuxhandbook.com/date-command/</a>
