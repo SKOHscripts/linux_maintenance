@@ -82,7 +82,7 @@ then
     zenity --question --height 40 --width 300 --title "Maintenance d'Ubuntu" --text "Voulez-vous supprimer les fichiers de la corbeille antérieurs au $twoweeks ?"
     if [ $? == 0 ] 
 	then
-	    trash-empty 31
+	    trash-empty 14
 	fi
     notify-send -i dialog-ok "Maintenance d'Ubuntu" "Terminée avec succès" -t 500
 
