@@ -20,3 +20,26 @@ Et voilà, après tout se fait tout seul :
     <li>Nettoyage de la corbeille</li>
 </ol>
 </b>
+
+---
+
+<p>A shell script that allows to do a complete maintenance of the Linux system (under Ubuntu). Useful packages will be installed automatically if they are not.</p>
+
+<p>The "trash cleanup" part allows to remove (or not) files that have been in the trash for more than 1 week. But you can change this value with the corresponding macro. Explanations here: <a href="https://linuxhandbook.com/date-command/" title="commande date">https://linuxhandbook.com/date-command/</a>
+
+To launch the script, don't forget to allow the execution : <br/> chmod +x ./maintenance.sh
+
+Then go into the folder and execute the script : <br/> ./maintenance.sh
+
+And voilà, everything is done by itself:
+<b><ol>
+    <li>Updating</li>
+    <li>Autoremove/clean</li>
+    <li>"Localepurge" junk files according to your language</li>
+    <li>Purging deleted packages</li>
+    <li>Purge useless kernels and put them in "manuals".</li>
+    <li>Snapshot update</li>
+    <li>Resolution of dependencies not present</li>
+    <li>Cleaning the basket</li>
+</ol>
+</b>
