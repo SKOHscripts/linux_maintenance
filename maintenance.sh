@@ -40,6 +40,14 @@ then
     sudo apt update
     sudo apt full-upgrade -y
     echo " "
+    echo -e -n "$rouge MISE A JOUR DES SNAPS "
+    for i in `seq 24 $COLUMNS`;
+        do echo -n "."
+    done
+    echo -e " $neutre"
+    notify-send -i system-software-update "Maintenance d'Ubuntu" "Nettoyage des snaps" -t 500
+    sudo snap refresh
+    echo "" 
     echo -e -n "$rouge AUTO-REMOVE "
         for i in `seq 14 $COLUMNS`;
         do echo -n "."
@@ -73,14 +81,6 @@ then
 
     sudo apt purge $(COLUMNS=200 dpkg -l | grep "^rc" | tr -s ' ' | cut -d ' ' -f 2) -y
     echo " "
-    echo -e -n "$rouge NETTOYAGE DES SNAPS "
-        for i in `seq 22 $COLUMNS`;
-        do echo -n "."
-    done
-    echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Nettoyage des snaps" -t 500
-    sudo snap refresh
-    echo "" 
     echo -e -n "$rouge RESOLUTION DES DEPENDANCES "
         for i in `seq 29 $COLUMNS`;
         do echo -n "."
@@ -104,9 +104,14 @@ then
         sudo apt install -y trash-cli
     fi
 
-    for i in `seq 0 30`;
+    for i in `seq 0 7`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
+    echo -e "$jaune"
+    for i in `seq 8 30`;
+        do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
+    done
+    echo -e "$neutre"
 
     zenity --question --height 40 --width 300 --title "Maintenance d'Ubuntu" --text "Voulez-vous supprimer les fichiers de la corbeille antérieurs au <b>$TRASH</b> ?"
     if [ $? == 0 ] 
