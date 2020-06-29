@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rouge='\e[1;31m'
-jaune='\e[1;33m' 
+vert='\e[1;33m' 
 bleu='\e[1;34m' 
 violet='\e[1;35m' 
 vert='\e[1;32m'
@@ -30,8 +30,8 @@ zenity --question --no-wrap --height 40 --width 300 --title  "Maintenance d'Ubun
 if [ $? == 0 ] 
 then
     echo ""
-    echo -e -n "$rouge MISE A JOUR "
-    for i in `seq 14 $COLUMNS`;
+    echo -e -n "$vert [1/7]$rouge MISE A JOUR "
+    for i in `seq 20 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
@@ -40,32 +40,32 @@ then
     sudo apt update
     sudo apt full-upgrade -y
     echo " "
-    echo -e -n "$rouge MISE A JOUR DES SNAPS "
-    for i in `seq 24 $COLUMNS`;
+    echo -e -n "$vert [2/7]$rouge MISE A JOUR DES SNAPS "
+    for i in `seq 30 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Nettoyage des snaps" -t 500
+    notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des snaps" -t 500
     sudo snap refresh
     echo "" 
-    echo -e -n "$rouge AUTO-REMOVE "
-        for i in `seq 14 $COLUMNS`;
+    echo -e -n "$vert [3/7]$rouge AUTO-REMOVE "
+        for i in `seq 20 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
     notify-send -i system-software-update "Maintenance d'Ubuntu" "Auto-remove" -t 500
     sudo apt autoremove --purge -y
     echo " "
-    echo -e -n "$rouge CLEAN "
-        for i in `seq 8 $COLUMNS`;
+    echo -e -n "$vert [4/7]$rouge CLEAN "
+        for i in `seq 14 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
     notify-send -i system-software-update "Maintenance d'Ubuntu" "Clean" -t 500
     sudo apt autoclean
     echo " "
-    echo -e -n "$rouge PURGE "
-        for i in `seq 8 $COLUMNS`;
+    echo -e -n "$vert [5/7]$rouge PURGE "
+        for i in `seq 14 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
@@ -81,8 +81,8 @@ then
 
     sudo apt purge $(COLUMNS=200 dpkg -l | grep "^rc" | tr -s ' ' | cut -d ' ' -f 2) -y
     echo " "
-    echo -e -n "$rouge RESOLUTION DES DEPENDANCES "
-        for i in `seq 29 $COLUMNS`;
+    echo -e -n "$vert [6/7]$rouge RESOLUTION DES DEPENDANCES "
+        for i in `seq 35 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
@@ -90,8 +90,8 @@ then
     sudo apt install -fy
     echo ""
     TRASH=$(date --date="1 week ago" "+%d %B")
-    echo -e -n "$rouge FICHIERS ANTERIEURS AU $TRASH "
-        for i in `seq 34 $COLUMNS`;
+    echo -e -n "$vert [7/7]$rouge FICHIERS ANTERIEURS AU $TRASH "
+        for i in `seq 40 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
@@ -107,11 +107,11 @@ then
     for i in `seq 0 7`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
-    echo -e "$jaune"
+    echo ""
+    echo ""
     for i in `seq 8 30`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
-    echo -e "$neutre"
 
     zenity --question --height 40 --width 300 --title "Maintenance d'Ubuntu" --text "Voulez-vous supprimer les fichiers de la corbeille antérieurs au <b>$TRASH</b> ?"
     if [ $? == 0 ] 
@@ -121,14 +121,6 @@ then
     notify-send -i dialog-ok "Maintenance d'Ubuntu" "Terminée avec succès" -t 500
 
 else
-    echo ""
-    echo -e -n "$rouge MISE A JOUR "
-    for i in `seq 14 $COLUMNS`;
-        do echo -n "."
-    done
-    echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour" -t 500
-    sudo apt update
-    sudo apt full-upgrade -y
-    notify-send -i dialog-ok "Maintenance d'Ubuntu" "Terminée avec succès" -t 500
+    notify-send -i dialog-close "Maintenance d'Ubuntu" "Annulé" -t 500
+    exit
 fi
