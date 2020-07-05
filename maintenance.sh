@@ -96,7 +96,7 @@ then
     sudo apt install -fy
     echo ""
     TRASH=$(date --date="1 week ago" "+%d %B")
-    
+
     echo -e -n "$vert [7/7]$rouge FICHIERS ANTERIEURS AU $TRASH "
         for i in `seq 40 $COLUMNS`;
         do echo -n "."
