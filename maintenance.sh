@@ -1,7 +1,5 @@
 #!/bin/bash
 
-git pull
-
 rouge='\e[1;31m'
 vert='\e[1;33m' 
 bleu='\e[1;34m' 
