@@ -35,7 +35,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour"
+    notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des paquets"
     sudo dpkg --configure -a
     sudo apt update
     sudo apt full-upgrade -y
