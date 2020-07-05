@@ -96,13 +96,14 @@ then
     sudo apt install -fy
     echo ""
     TRASH=$(date --date="1 week ago" "+%d %B")
+    
     echo -e -n "$vert [7/7]$rouge FICHIERS ANTERIEURS AU $TRASH "
         for i in `seq 40 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
     notify-send -i system-software-update "Maintenance d'Ubuntu" "Suppression des fichiers de la corbeille antérieurs au $TRASH"
-    echo ""
+    echo " "
 
     which trash-cli > /dev/null
     if [ $? = 1 ]
@@ -113,8 +114,8 @@ then
     for i in `seq 0 7`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
-    echo ""
-    echo ""
+    echo " "
+    echo " "
     for i in `seq 8 30`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
