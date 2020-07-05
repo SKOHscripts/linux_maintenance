@@ -30,8 +30,8 @@ zenity --question --no-wrap --height 40 --width 300 --title  "Maintenance d'Ubun
 if [ $? == 0 ] 
 then
     echo ""
-    echo -e -n "$vert [1/7]$rouge MISE A JOUR "
-    for i in `seq 20 $COLUMNS`;
+    echo -e -n "$vert [1/7]$rouge MISE A JOUR DES PAQUETS "
+    for i in `seq 32 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
