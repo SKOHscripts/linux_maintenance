@@ -40,6 +40,7 @@ then
     sudo apt update
     sudo apt full-upgrade -y
     echo " "
+    
     echo -e -n "$vert [2/7]$rouge MISE A JOUR DES SNAPS "
     for i in `seq 30 $COLUMNS`;
         do echo -n "."
@@ -47,7 +48,8 @@ then
     echo -e " $neutre"
     notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des snaps"
     sudo snap refresh
-    echo "" 
+    echo " " 
+    
     echo -e -n "$vert [3/7]$rouge AUTO-REMOVE "
         for i in `seq 20 $COLUMNS`;
         do echo -n "."
@@ -56,6 +58,7 @@ then
     notify-send -i system-software-update "Maintenance d'Ubuntu" "Auto-remove"
     sudo apt autoremove --purge -y
     echo " "
+    
     echo -e -n "$vert [4/7]$rouge CLEAN "
         for i in `seq 14 $COLUMNS`;
         do echo -n "."
@@ -64,6 +67,7 @@ then
     notify-send -i system-software-update "Maintenance d'Ubuntu" "Clean"
     sudo apt autoclean
     echo " "
+    
     echo -e -n "$vert [5/7]$rouge PURGE "
         for i in `seq 14 $COLUMNS`;
         do echo -n "."
