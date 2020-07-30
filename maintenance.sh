@@ -35,7 +35,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des paquets"
+    notify-send -i system-software-update "Maintenance d'Ubuntu" "Mises à jour"
     sudo dpkg --configure -a
     sudo apt update
     sudo apt full-upgrade -y
@@ -46,7 +46,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des snaps"
+    # notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des snaps"
     sudo snap refresh
     echo " " 
     
@@ -55,7 +55,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Auto-remove"
+    # notify-send -i system-software-update "Maintenance d'Ubuntu" "Auto-remove"
     sudo apt autoremove --purge -y
     echo " "
     
@@ -64,7 +64,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Clean"
+    # notify-send -i system-software-update "Maintenance d'Ubuntu" "Clean"
     sudo apt autoclean
     echo " "
     
@@ -73,7 +73,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Purge"
+    # notify-send -i system-software-update "Maintenance d'Ubuntu" "Purge"
 
     which localepurge > /dev/null
     if [ $? = 1 ]
@@ -90,7 +90,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Réparation des dépendances"
+    # notify-send -i system-software-update "Maintenance d'Ubuntu" "Réparation des dépendances"
     sudo apt install -fy
     echo ""
     TRASH=$(date --date="1 week ago" "+%d %B")
@@ -100,7 +100,7 @@ then
         do echo -n "."
     done
     echo -e " $neutre"
-    notify-send -i system-software-update "Maintenance d'Ubuntu" "Suppression des fichiers de la corbeille antérieurs au $TRASH"
+    # notify-send -i system-software-update "Maintenance d'Ubuntu" "Suppression des fichiers de la corbeille antérieurs au $TRASH"
     echo " "
 
     which trash-cli > /dev/null
