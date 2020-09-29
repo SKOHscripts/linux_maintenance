@@ -1,4 +1,8 @@
 # linux-maintenance
+
+![Creative Commons](cc.png)
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+
 <p>Un script shell qui permet de faire une maintenance complète du système Linux (sous Ubuntu). 
 Les paquets utiles seront installés automatiquement s'ils ne le sont pas.</p>
 
