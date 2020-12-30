@@ -86,7 +86,7 @@ then
     # notify-send -i system-software-update "Maintenance d'Ubuntu" "Réparation des dépendances"
     sudo apt install -fy
     echo ""
-    TRASH=$(date --date="1 week ago" "+%d %B")
+    TRASH=$(date --date="3 week ago" "+%d %B")
 
     echo -e -n "$vert [7/7]$rouge FICHIERS ANTERIEURS AU $TRASH "
         for i in `seq 40 $COLUMNS`;
@@ -102,12 +102,12 @@ then
         sudo apt install -y trash-cli
     fi
 
-    for i in `seq 0 7`;
+    for i in `seq 0 21`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
     echo " "
     echo " "
-    for i in `seq 8 30`;
+    for i in `seq 21 60`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
 
