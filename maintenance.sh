@@ -39,6 +39,7 @@ then
     sudo dpkg --configure -a
     sudo apt update
     sudo apt full-upgrade -y
+    sudo apm upgrade
     echo " "
 
     echo -e -n "$vert [2/7]$rouge MISE A JOUR DES SNAPS "
