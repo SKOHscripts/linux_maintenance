@@ -54,7 +54,6 @@ then
 	fi
     echo -e " $neutre"
     # notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des packages python"
-    apm upgrade
     pipupgrade --self --yes
     pipupgrade --pip --yes
     echo " "
@@ -124,10 +123,11 @@ then
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
     echo " "
-    echo " "
+    echo -e " $rouge"
     for i in `seq 14 60`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
+    echo -e " $neutre"
 
     zenity --question --height 40 --width 300 --title "Maintenance d'Ubuntu" --text "Voulez-vous supprimer les fichiers de la corbeille antérieurs au <b>$TRASH</b> ?"
     if [ $? == 0 ]
