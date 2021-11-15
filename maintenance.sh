@@ -64,7 +64,6 @@ then
     done
     echo -e " $neutre"
     # notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des snaps"
-    snap list --all
     sudo snap refresh
     echo " "
 
