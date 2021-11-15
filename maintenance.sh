@@ -40,7 +40,7 @@ then
     sudo dpkg --configure -a
     sudo apt update
     sudo apt full-upgrade -y
-    flatpak update
+    flatpak update -y
     echo " "
 
     echo -e -n "$vert [2/8]$rouge MISE A JOUR DES PACKAGES PYTHON "
