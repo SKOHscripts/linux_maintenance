@@ -31,8 +31,8 @@ zenity --question --no-wrap --height 40 --width 300 --title  "Maintenance d'Ubun
 if [ $? == 0 ]
 then
     echo ""
-    echo -e -n "$vert [1/8]$rouge MISE A JOUR DES PAQUETS "
-    for i in `seq 32 $COLUMNS`;
+    echo -e -n "$vert [1/8]$rouge MISE A JOUR APT "
+    for i in `seq 24 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
@@ -40,7 +40,6 @@ then
     sudo dpkg --configure -a
     sudo apt update
     sudo apt full-upgrade -y
-    flatpak update -y
     echo " "
 
     echo -e -n "$vert [2/8]$rouge MISE A JOUR DES PACKAGES PYTHON "
@@ -58,13 +57,14 @@ then
     pipupgrade --pip --yes
     echo " "
 
-    echo -e -n "$vert [3/8]$rouge MISE A JOUR DES SNAPS "
-    for i in `seq 30 $COLUMNS`;
+    echo -e -n "$vert [3/8]$rouge MISE A JOUR SNAPS ET FLATPAK "
+    for i in `seq 37 $COLUMNS`;
         do echo -n "."
     done
     echo -e " $neutre"
     # notify-send -i system-software-update "Maintenance d'Ubuntu" "Mise à jour des snaps"
     sudo snap refresh
+    flatpak update -y
     echo " "
 
     echo -e -n "$vert [4/8]$rouge AUTO-REMOVE "
@@ -131,7 +131,7 @@ then
     zenity --question --height 40 --width 300 --title "Maintenance d'Ubuntu" --text "Voulez-vous supprimer les fichiers de la corbeille antérieurs au <b>$TRASH</b> ?"
     if [ $? == 0 ]
 	then
-	    trash-empty 14
+	    trash-empty -f 14
 	fi
     notify-send -i dialog-ok "Maintenance d'Ubuntu" "Terminée avec succès"
 
