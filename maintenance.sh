@@ -123,7 +123,7 @@ then
     done
     echo " "
     echo -e " $rouge"
-    for i in `seq 14 60`;
+    for i in `seq 15 60`;
         do trash-list | grep $(date --date="$i day ago" "+%Y-%m-%d")
     done
     echo -e " $neutre"
