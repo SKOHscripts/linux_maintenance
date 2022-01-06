@@ -1,4 +1,9 @@
 #!/bin/bash
+###############################################################################
+## A shell script that allows to do a complete maintenance of the Linux system.
+## Copyright (C) Corentin Michel - All Rights Reserved
+## Contact: corentin.michel@mailo.com [https://github.com/SKOHscripts]
+###############################################################################
 
 rouge='\e[1;31m'
 vert='\e[1;33m'
